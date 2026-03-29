@@ -27,11 +27,3 @@ console.log(storage.getItems()); // ["Nanitoids", "Antigravitator", "Droid"]
 
 storage.removeItem('Scanner');
 console.log(storage.getItems()); // ["Nanitoids", "Antigravitator", "Droid"]
-/*Declare the following class methods:
-
-getItems() — returns an array of current products in a private property  items.
-
-addItem(newItem) — accepts a new product  newItem and adds it to the product array in a private property  items of the object.
-
-removeItem(itemToRemove) — accepts a string with the product name itemToRemove and removes it from the product array in the private 
-property  items of the object.*/
