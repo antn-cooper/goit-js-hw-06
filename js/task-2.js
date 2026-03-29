@@ -1,62 +1,37 @@
-// `use strict`;
+'use strict';
 
-// const getUsersWithFriend = (users, friendName) => {
-//   return users.filter((user) => user.friends.includes(friendName));
-// };
+class Storage {
+  #items;
+  constructor(items) {
+    this.#items = items;
+  }
+  getItems() {
+    return this.#items;
+  }
+  addItem(newItem) {
+    this.#items.push(newItem);
+  }
+  removeItem(itemToRemove) {
+    this.#items = this.#items.filter((item) => item !== itemToRemove);
+  }
+}
 
-// const allUsers = [
-//   {
-//     name: 'Moore Hensley',
-//     friends: ['Sharron Pace'],
-//   },
-//   {
-//     name: 'Sharlene Bush',
-//     friends: ['Briana Decker', 'Sharron Pace'],
-//   },
-//   {
-//     name: 'Ross Vazquez',
-//     friends: ['Marilyn Mcintosh', 'Padilla Garrison', 'Naomi Buckner'],
-//   },
-//   {
-//     name: 'Elma Head',
-//     friends: ['Goldie Gentry', 'Aisha Tran'],
-//   },
-//   {
-//     name: 'Carey Barr',
-//     friends: ['Jordan Sampson', 'Eddie Strong'],
-//   },
-//   {
-//     name: 'Blackburn Dotson',
-//     friends: ['Jacklyn Lucas', 'Linda Chapman'],
-//   },
-//   {
-//     name: 'Sheree Anthony',
-//     friends: ['Goldie Gentry', 'Briana Decker'],
-//   },
-// ];
+const storage = new Storage(['Nanitoids', 'Prolonger', 'Antigravitator']);
+console.log(storage.getItems()); // ["Nanitoids", "Prolonger", "Antigravitator"]
 
-// console.log(getUsersWithFriend(allUsers, 'Briana Decker'));
-// // [
-// // {
-// // name: "Sharlene Bush",
-// // friends: ["Briana Decker", "Sharron Pace"]
-// // },
-// // {
-// // name: "Sheree Anthony",
-// // friends: ["Goldie Gentry", "Briana Decker"]
-// // }
-// // ]
+storage.addItem('Droid');
+console.log(storage.getItems()); // ["Nanitoids", "Prolonger", "Antigravitator", "Droid"]
 
-// console.log(getUsersWithFriend(allUsers, 'Goldie Gentry'));
-// // [
-// // {
-// // name: "Elma Head",
-// // friends: ["Goldie Gentry", "Aisha Tran"]
-// // },
-// // {
-// // name: "Sheree Anthony",
-// // friends: ["Goldie Gentry", "Briana Decker"]
-// // }
-// // ]
+storage.removeItem('Prolonger');
+console.log(storage.getItems()); // ["Nanitoids", "Antigravitator", "Droid"]
 
-// console.log(getUsersWithFriend(allUsers, 'Adrian Cross')); // []
+storage.removeItem('Scanner');
+console.log(storage.getItems()); // ["Nanitoids", "Antigravitator", "Droid"]
+/*Declare the following class methods:
+
+getItems() — returns an array of current products in a private property  items.
+
+addItem(newItem) — accepts a new product  newItem and adds it to the product array in a private property  items of the object.
+
+removeItem(itemToRemove) — accepts a string with the product name itemToRemove and removes it from the product array in the private 
+property  items of the object.*/
